@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+# Testing
+tox = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-cookies = "*"
+pytest-xdist = "*"
+pytest-sugar = "*"
+# Coverage
+coverage = "*"
+codecov = "*"
+# Docs
+sphinx = ">=2.0"
+romnnn_sphinx_press_theme = "*"
+sphinxemoji = "*"
+# Tools
+"ruamel.yaml" = "*"
+invoke = "*"
+pre-commit = "*"
+cookiecutter = "*"
+
+[packages]

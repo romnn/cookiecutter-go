@@ -1,0 +1,57 @@
+dist: bionic
+language: go
+go:
+  - 1.13.x
+  - master
+  - tip
+os:
+  - linux
+  - osx
+env: MOD=SOMEMOD BINARY=SOMEBINARY
+jobs:
+  allow_failures:
+    - go: tip
+  fast_finish: true
+  include:
+    - stage: deploy
+      name: Publish release
+      os: linux
+      go: master
+      before_script:
+        - go get github.com/mitchellh/gox
+      script:
+        - gox -os="linux darwin windows" -arch="amd64" -output="${BINARY}-${TRAVIS_TAG}-{{.OS}}-{{.Arch}}" -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose ${MOD}
+      # Notice: The token has already been changed
+      # This might imply accidental misuse
+      deploy:
+        provider: releases
+        token:
+          secure: ANOTHER_GH_TOKEN
+        file:
+          - ${BINARY}-${TRAVIS_TAG}-windows-amd64.exe
+          - ${BINARY}-${TRAVIS_TAG}-darwin-amd64
+          - ${BINARY}-${TRAVIS_TAG}-linux-amd64
+        skip_cleanup: true
+        on:
+          repo: SOME_REPO
+          tags: true
+install: true
+notifications:
+  email: false
+before_script:
+  - go get -u golang.org/x/lint/golint
+  - go get github.com/fzipp/gocyclo
+script:
+  - pip install -U pip && pip install pre-commit && pre-commit run --all-files
+  - env GO111MODULE=on go build ${MOD}
+  - env GO111MODULE=on go test -v -race -coverprofile=coverage.txt -coverpkg=all -covermode=atomic ./...
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+deploy:
+  provider: releases
+  api_key:
+    secure: NEW_GH_TOKEN
+  file: CHOSEN_FILE
+  on:
+    repo: CHOSEN_REPO
+
