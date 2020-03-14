@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>Tutorial</title>
+    
+      <link rel="stylesheet" href="_static/pygments.css">
+      <link rel="stylesheet" href="_static/theme.css">
+      <link rel="stylesheet" href="_static/romnnn_sphinx_press_theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+
+      
+      <script src="_static/theme-vendors.js"></script>
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Prompts" href="prompts.html" />
+  <link rel="prev" title="Cookiecutter Go Template" href="readme.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="index.html" class="home-link">
+      
+        <span class="site-name">romnnn-cookiecutter-go</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="index.html#getting-started"
+         class="nav-link  router-link-active">
+         getting started
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#basics"
+         class="nav-link ">
+         basics
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/romnnn/cookiecutter-go"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="index.html#getting-started"
+         class="nav-link  router-link-active">
+         getting started
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#basics"
+         class="nav-link ">
+         basics
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/romnnn/cookiecutter-go"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#getting-started">getting started</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="readme.html" class="reference internal ">Cookiecutter Go Template</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Tutorial</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#cookie-step-1-install-cookiecutter" class="reference internal">🍪 Step 1: Install Cookiecutter</a></li>
+                
+                  <li class="toctree-l2"><a href="#package-step-2-generate-your-go-project" class="reference internal">📦 Step 2: Generate Your Go Project</a></li>
+                
+                  <li class="toctree-l2"><a href="#octopus-step-3-create-a-github-repo" class="reference internal">🐙 Step 3: Create a GitHub Repo</a></li>
+                
+                  <li class="toctree-l2"><a href="#hammer-and-wrench-step-4-first-build" class="reference internal">🛠 Step 4: First build</a></li>
+                
+                  <li class="toctree-l2"><a href="#construction-worker-step-6-set-up-travisci" class="reference internal">👷 Step 6: Set up TravisCI</a></li>
+                
+                  <li class="toctree-l2"><a href="#tada-step-7-start-coding" class="reference internal">🎉 Step 7: Start coding!</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#basics">basics</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="prompts.html" class="reference internal ">Prompts</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="invoke.html" class="reference internal ">Invoke</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="versions.html" class="reference internal ">Version Management</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>Tutorial</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="readme.html"
+       title="previous chapter">← Cookiecutter Go Template</a>
+  </li>
+  <li class="next">
+    <a href="prompts.html"
+       title="next chapter">Prompts →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do you find any of these instructions confusing? <a class="reference external" href="https://github.com/romnnn/cookiecutter-go/blob/master/docs/tutorial.rst">Edit this file</a>
+and submit a pull request with your improvements!</p>
+</div>
+<p>To start with, you will need a <a class="reference external" href="https://github.com/">GitHub account</a>. Create this before you get started with this tutorial.
+If you are new to Git and GitHub, you should probably spend a few minutes on some of the tutorials at the top of the page at <a class="reference external" href="https://help.github.com/">GitHub Help</a>.</p>
+<div class="section" id="cookie-step-1-install-cookiecutter">
+<h2>🍪 Step 1: Install Cookiecutter<a class="headerlink" href="#cookie-step-1-install-cookiecutter" title="Permalink to this headline">¶</a></h2>
+<p>Install <code class="docutils literal notranslate"><span class="pre">cookiecutter&gt;=1.4.0</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python3 -m pip install -U cookiecutter&gt;<span class="o">=</span><span class="m">1</span>.4.0
+</pre></div>
+</div>
+<p>We’ll also need <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> and <code class="docutils literal notranslate"><span class="pre">bump2version</span></code> for initializing the new project:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python3 -m pip install pre-commit bump2version
+</pre></div>
+</div>
+<p>As part of the <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> hooks, go tools are run. Those must also be installed:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> go get -u golang.org/x/tools/cmd/goimports
+<span class="gp">$</span> go get -u golang.org/x/lint/golint
+<span class="gp">$</span> go get -u github.com/fzipp/gocyclo
+<span class="gp">$</span> go get -u github.com/mitchellh/gox  <span class="c1"># if you want to test building on different architectures and platforms</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To be able to excecute the tools downloaded with <code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">get</span></code>,
+make sure to include <code class="docutils literal notranslate"><span class="pre">$GOPATH/bin</span></code> in your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>.
+If <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$GOPATH</span></code> does not give you a path make sure to set it
+(<code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">GOPATH=&quot;$HOME/go</span></code> for example). On order for your changes to persist,
+do not forget to add these to your shells <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>.</p>
+</div>
+</div>
+<div class="section" id="package-step-2-generate-your-go-project">
+<h2>📦 Step 2: Generate Your Go Project<a class="headerlink" href="#package-step-2-generate-your-go-project" title="Permalink to this headline">¶</a></h2>
+<p>Now it’s time to generate your golang project.</p>
+<p>Use cookiecutter, pointing it at the cookiecutter-go repo:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cookiecutter https://github.com/romnnn/cookiecutter-go.git
+</pre></div>
+</div>
+<p>You’ll be asked to enter a bunch of values to set the package up.
+If you don’t know what to enter, stick with the defaults.</p>
+</div>
+<div class="section" id="octopus-step-3-create-a-github-repo">
+<h2>🐙 Step 3: Create a GitHub Repo<a class="headerlink" href="#octopus-step-3-create-a-github-repo" title="Permalink to this headline">¶</a></h2>
+<p>Go to your GitHub account and create a new repo named <code class="docutils literal notranslate"><span class="pre">mypackage</span></code>, where <code class="docutils literal notranslate"><span class="pre">mypackage</span></code> matches the <code class="docutils literal notranslate"><span class="pre">[project_slug]</span></code> from your answers to running cookiecutter.
+This is so that Travis CI can find it when we get to Step 5.</p>
+<p>You will find one folder named after the <code class="docutils literal notranslate"><span class="pre">[project_slug]</span></code>.
+Move into this folder, and then setup git to use your GitHub repo and upload the code:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> mypackage
+<span class="gp">$</span> git init .
+<span class="gp">$</span> git add .
+<span class="gp">$</span> git commit -m <span class="s2">&quot;Initial commit.&quot;</span>
+<span class="gp">$</span> git remote add origin git@github.com:myusername/mypackage.git
+<span class="gp">$</span> git push -u origin master
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">myusername</span></code> and <code class="docutils literal notranslate"><span class="pre">mypackage</span></code> are adjusted for your username and package name.</p>
+<p>You can use HTTPS to push the repository, but it’s more convenient to use a ssh key to push the repo.
+You can <a class="reference external" href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">Generate</a> a key or <a class="reference external" href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">Add</a> an existing one.</p>
+</div>
+<div class="section" id="hammer-and-wrench-step-4-first-build">
+<h2>🛠 Step 4: First build<a class="headerlink" href="#hammer-and-wrench-step-4-first-build" title="Permalink to this headline">¶</a></h2>
+<p>You should still be in the folder containing the <code class="docutils literal notranslate"><span class="pre">go.mod</span></code> file.</p>
+<p>Go ahead and give building the initial project a go (no pun intended):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">console</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>$ go build &lt;your-package&gt;</p>
+</div></blockquote>
+<p>You can also test the entire project by running the pre commit hooks, which should have been installed
+into your git repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pre-commit run --all-files
+</pre></div>
+</div>
+<p>Next to building, this will also format and lint your code amongst other things.</p>
+</div>
+<div class="section" id="construction-worker-step-6-set-up-travisci">
+<h2>👷 Step 6: Set up TravisCI<a class="headerlink" href="#construction-worker-step-6-set-up-travisci" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://travis-ci.com/">Travis-CI</a> <a class="footnote-reference brackets" href="#id2" id="id1">*</a> is a continuous integration tool used to prevent integration problems.
+Every commit to the master branch will trigger automated builds of the application.</p>
+<p>Add the repository to your Travis-CI account by activating it.
+If you have connected travis with GitHub this is done automatically.
+If you have not yet installed the Travis CLI (Command line interface), follow <a class="reference external" href="https://github.com/travis-ci/travis.rb#installation">the installation guide</a>.</p>
+<p>With the Travis CLI, setup automatic upload of binaries to the GitHub releases like so:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> travis login
+<span class="gp">$</span> travis setup releases         <span class="c1"># When using travis.org</span>
+<span class="gp">$</span> travis setup releases --com   <span class="c1"># When using travis.com</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both commands will ask you for your GitHub credentials.
+If you are worried, skip <code class="docutils literal notranslate"><span class="pre">travis</span> <span class="pre">login</span></code>, create a GitHub token manually
+and use <code class="docutils literal notranslate"><span class="pre">travis</span> <span class="pre">encrypt</span></code>…</p>
+</div>
+<p>After running <code class="docutils literal notranslate"><span class="pre">setup</span> <span class="pre">releases</span></code>, your <code class="docutils literal notranslate"><span class="pre">.travis.yml</span></code> config will:</p>
+<ul class="simple">
+<li><p>Include the encrypted GitHub oauth token</p></li>
+<li><p>Be able to automatically deploy binaries to releases when you push a new tag to the master branch.</p></li>
+</ul>
+<p>Because the token is appended outside of any build stage,
+you still need to manually edit the <code class="docutils literal notranslate"><span class="pre">.travis.yml</span></code> config or run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> invoke fix-token
+</pre></div>
+</div>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">*</a></span></dt>
+<dd><p>For private projects go to <a class="reference external" href="https://travis-ci.com/">travis-ci.com</a>, for public ones go to <a class="reference external" href="https://travis-ci.org/">travis-ci.org</a> has been a thing.
+But afaik all projects should use <a class="reference external" href="https://travis-ci.com/">travis-ci.com</a> as of now.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="tada-step-7-start-coding">
+<h2>🎉 Step 7: Start coding!<a class="headerlink" href="#tada-step-7-start-coding" title="Permalink to this headline">¶</a></h2>
+<p>Hopefully this tutorial was helpful to you!</p>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="readme.html"
+       title="previous chapter">← Cookiecutter Go Template</a>
+  </li>
+  <li class="next">
+    <a href="prompts.html"
+       title="next chapter">Prompts →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, romnnn.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

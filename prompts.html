@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>Prompts</title>
+    
+      <link rel="stylesheet" href="_static/pygments.css">
+      <link rel="stylesheet" href="_static/theme.css">
+      <link rel="stylesheet" href="_static/romnnn_sphinx_press_theme.css">
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+
+      
+      <script src="_static/theme-vendors.js"></script>
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="Invoke" href="invoke.html" />
+  <link rel="prev" title="Tutorial" href="tutorial.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <div class="home-link-container">
+      <router-link to="index.html" class="home-link">
+      
+        <span class="site-name">romnnn-cookiecutter-go</span>
+    </router-link>
+  </div>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="index.html#getting-started"
+         class="nav-link ">
+         getting started
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#basics"
+         class="nav-link  router-link-active">
+         basics
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/romnnn/cookiecutter-go"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="index.html#getting-started"
+         class="nav-link ">
+         getting started
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="index.html#basics"
+         class="nav-link  router-link-active">
+         basics
+      </a>
+    </div>
+  
+
+
+
+  
+    <div class="nav-item">
+      <a href="https://github.com/romnnn/cookiecutter-go"
+        class="nav-link external">
+          Github <outboundlink/>
+      </a>
+    </div>
+  
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Search</span>
+    <div class="searchformwrapper">
+      <form autocomplete="off" class="search" action="search.html" method="get">
+        <input type="text" name="q" autocomplete="off" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#getting-started">getting started</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="readme.html" class="reference internal ">Cookiecutter Go Template</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="tutorial.html" class="reference internal ">Tutorial</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="index.html#basics">basics</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Prompts</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#templated-values" class="reference internal">Templated values</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="invoke.html" class="reference internal ">Invoke</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="versions.html" class="reference internal ">Version Management</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+    <li>Prompts</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="tutorial.html"
+       title="previous chapter">← Tutorial</a>
+  </li>
+  <li class="next">
+    <a href="invoke.html"
+       title="next chapter">Invoke →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="prompts">
+<h1>Prompts<a class="headerlink" href="#prompts" title="Permalink to this headline">¶</a></h1>
+<p>When you create your package, you are prompted to enter these values.</p>
+<div class="section" id="templated-values">
+<h2>Templated values<a class="headerlink" href="#templated-values" title="Permalink to this headline">¶</a></h2>
+<p>The following appear in various parts of your generated project. Do not worry entering your username, full name and email address, these values are genuinely required in files
+including <code class="docutils literal notranslate"><span class="pre">AUTHORS.rst</span></code>, <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>, <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> and the package’s documentation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">full_name</dt>
+<dd class="field-odd"><p>Your full name</p>
+</dd>
+<dt class="field-even">email</dt>
+<dd class="field-even"><p>Your email address</p>
+</dd>
+<dt class="field-odd">github_username</dt>
+<dd class="field-odd"><p>Your GitHub username</p>
+</dd>
+<dt class="field-even">project_name</dt>
+<dd class="field-even"><p>The name of your new go package project. This is used in documentation, so spaces and any characters are fine here</p>
+</dd>
+<dt class="field-odd">project_slug</dt>
+<dd class="field-odd"><p>The namespace of your go package. This should be go import-friendly. Typically, it is the <cite>slugified</cite> version of <code class="docutils literal notranslate"><span class="pre">project_name</span></code></p>
+</dd>
+<dt class="field-even">golang_import_path</dt>
+<dd class="field-even"><p>The import path of your package or the download path of your tool. Defaults to <code class="docutils literal notranslate"><span class="pre">github.com/&lt;github_username&gt;/&lt;project_slug&gt;</span></code></p>
+</dd>
+<dt class="field-odd">version</dt>
+<dd class="field-odd"><p>The starting version number of the package</p>
+</dd>
+<dt class="field-even">project_type</dt>
+<dd class="field-even"><p>The type of your project, which can be  <em>package</em>, <em>tool</em> or <em>both</em></p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="tutorial.html"
+       title="previous chapter">← Tutorial</a>
+  </li>
+  <li class="next">
+    <a href="invoke.html"
+       title="next chapter">Invoke →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, romnnn.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+</div>
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>
