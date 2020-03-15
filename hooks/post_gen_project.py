@@ -2,12 +2,15 @@
 import os
 import time
 import subprocess
+import shutil
+
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
 
 def remove(filepath):
-    os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
+    shutil.rmtree(os.path.join(PROJECT_DIRECTORY, filepath), ignore_errors=True)
+    # os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
 
 
 class _Halo:
