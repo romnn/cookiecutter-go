@@ -22,6 +22,7 @@ sphinxemoji = "*"
 "ruamel.yaml" = "*"
 invoke = "*"
 pre-commit = "*"
+bump2version = "*"
 cookiecutter = "*"
 
 [packages]

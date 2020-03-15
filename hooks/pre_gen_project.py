@@ -9,7 +9,7 @@ URL_REGEX = re.compile(
         r'(?::\d+)?' # optional port
         r'(?:/?|[/?]\S+)$', re.IGNORECASE)
 
-package = "{{ cookiecutter.golang_import_path }}"
+package = "{{ cookiecutter.public_import_path }}"
 mock_url = "https://%s" % package
 
 if not (re.match(URL_REGEX, mock_url) is not None):

@@ -19,7 +19,7 @@ including ``AUTHORS.rst``, ``setup.py``, ``__init__.py`` and the package's docum
 
 :project_slug:          The namespace of your go package. This should be go import-friendly. Typically, it is the `slugified` version of ``project_name``
 
-:golang_import_path:    The import path of your package or the download path of your tool. Defaults to ``github.com/<github_username>/<project_slug>``
+:public_import_path:    The import path of your package or the download path of your tool. Defaults to ``github.com/<github_username>/<project_slug>``
 
 :version:               The starting version number of the package
 

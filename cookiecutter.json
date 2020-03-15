@@ -2,9 +2,11 @@
   "full_name": "romnnn",
   "email": "contact@romnn.com",
   "github_username": "romnnn",
+  "docker_hub_username": "romnn",
   "project_name": "gofaster",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
-  "golang_import_path": "github.com/{{ cookiecutter.github_username.lower() }}/{{ cookiecutter.project_slug }}",
+  "binary_name": "{{ cookiecutter.project_slug }}",
+  "public_import_path": "github.com/{{ cookiecutter.github_username.lower() }}",
   "version": "0.0.1",
   "project_type": ["module", "tool", "both"],
   "travis_plan": ["com", "org"]

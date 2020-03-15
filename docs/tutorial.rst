@@ -26,7 +26,7 @@ We'll also need ``pre-commit`` and ``bump2version`` for initializing the new pro
 
 .. code-block:: console
 
-    $ python3 -m pip install pre-commit bump2version
+    $ python3 -m pip install pre-commit bump2version invoke
 
 As part of the ``pre-commit`` hooks, go tools are run. Those must also be installed:
 

@@ -41,7 +41,7 @@ Prerequisites
 Before you get started, make sure you have installed the following tools::
 
     $ python3 -m pip install -U cookiecutter>=1.4.0
-    $ python3 -m pip install pre-commit bump2version
+    $ python3 -m pip install pre-commit bump2version invoke
     $ go get -u golang.org/x/tools/cmd/goimports
     $ go get -u golang.org/x/lint/golint
     $ go get -u github.com/fzipp/gocyclo

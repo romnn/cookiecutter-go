@@ -3,6 +3,12 @@ import os
 import time
 import subprocess
 
+PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
+
+
+def remove(filepath):
+    os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
+
 
 class _Halo:
     def __init__(self, *args, **kwargs):
@@ -68,6 +74,31 @@ def initialize_git():
         spinner.succeed("Successfully initialized git repository")
 
 
+def go_mod_init():
+    """Creates a go mod init file"""
+    with Halo(text="Initializing go module", spinner="dots", color="violet") as spinner:
+        module_name = '{{ cookiecutter.public_import_path }}'
+        try:
+            run_command(
+                "cd {} && go mod init {}".format(PROJECT_DIRECTORY, module_name),
+                stderr=subprocess.STDOUT,
+                shell=True,
+            )
+            time.sleep(0.5)
+        except Exception:
+            spinner.fail("Failed to initialize go module")
+            raise
+        spinner.succeed("Successfully initialized go module")
+
+
 if __name__ == "__main__":
     initialize_git()
     install_git_hooks()
+    go_mod_init()
+
+    # Remove unnecessary files
+    if '{{ cookiecutter.project_type }}' == 'module':
+        remove('Dockerfile')
+        remove('.dockerignore')
+    if '{{ cookiecutter.project_type }}' != 'both':
+        remove('cmd/')
