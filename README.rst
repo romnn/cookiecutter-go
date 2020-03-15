@@ -7,8 +7,8 @@ Cookiecutter Go Template
 .. image:: https://travis-ci.com/romnnn/cookiecutter-go.svg?branch=master
     :target: https://travis-ci.com/romnnn/cookiecutter-go
     :alt: Build status
-.. image:: https://readthedocs.org/projects/romnnn-cookiecutter-go/badge/?version=latest
-    :target: https://romnnn-cookiecutter-go.readthedocs.io/en/latest/?badge=latest
+.. image:: https://readthedocs.org/projects/cookiecutter-go/badge/?version=latest
+    :target: https://cookiecutter-go.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
 Opinionated ``cookiecutter`` template for golang projects.
@@ -41,7 +41,7 @@ Prerequisites
 Before you get started, make sure you have installed the following tools::
 
     $ python3 -m pip install -U cookiecutter>=1.4.0
-    $ python3 -m pip install pre-commit bump2version invoke
+    $ python3 -m pip install pre-commit bump2version invoke ruamel.yaml halo
     $ go get -u golang.org/x/tools/cmd/goimports
     $ go get -u golang.org/x/lint/golint
     $ go get -u github.com/fzipp/gocyclo
@@ -67,6 +67,7 @@ After your project was created:
     $ cd <mypackage>
     $ git remote add origin git@github.com:myusername/mypackage.git
     $ git add .
+    $ pre-commit run --all-files && pre-commit run --all-files
     $ git commit -m "Initial commit"
     $ git push --set-upstream origin master
 
@@ -93,6 +94,7 @@ After your project was created:
 * Start coding!
 
   $ go build <your-package>
+  $ invoke run -- --name Roman  # When building a tool or both
   $ pre-commit run --all-files
 
 * Release new versions of your package by pushing a new tag to master::

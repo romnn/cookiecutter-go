@@ -6,6 +6,7 @@ import shutil
 from ruamel.yaml import YAML
 import pprint
 import sys
+import os
 
 from invoke import task
 import webbrowser
@@ -94,15 +95,25 @@ def coverage(c, publish=False):
 
 
 {% if cookiecutter.project_type != 'module' -%}
+
+
 @task
 def cc(c):
     """Build the project for all architectures
     """
+    {% raw %}
+    output = "{{.Dir}}-{{.OS}}-{{.Arch}}"
+    TRAVIS_TAG = os.environ.get("TRAVIS_TAG")
+    BINARY = os.environ.get("BINARY")
+    if TRAVIS_TAG and BINARY:
+        output = "%s-%s-{{.OS}}-{{.Arch}}" % (BINARY, TRAVIS_TAG)
+    {% endraw %}
     c.run(
-        'gox -os="linux darwin windows" -arch="amd64" -output="build/{{.Dir}}-{{.OS}}-{{.Arch}}" -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose %s'
-        % CMD_PKG
+        'gox -os="linux darwin windows" -arch="amd64" -output="build/%s" -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose %s'
+        % (output, CMD_PKG)
     )
 {% endif %}
+
 
 @task
 def build(c):
@@ -112,6 +123,8 @@ def build(c):
 
 
 {% if cookiecutter.project_type != 'module' -%}
+
+
 @task
 def run(c):
     """Run the cmd target
@@ -140,6 +153,7 @@ def clean(c):
     """Runs all clean sub-tasks
     """
     pass
+
 
 def _create(d, *keys):
     current = d
@@ -182,7 +196,8 @@ def _fix_token(config_file=None, force=False, verify=True):
                 len(releases_stages) < 2
             ), "Can't set the new token because there are multiple stages deploying to releases"
         except (TypeError, KeyError):
-            raise AssertionError("Can't set the new token because there are no deployment stages")
+            raise AssertionError(
+                "Can't set the new token because there are no deployment stages")
 
         try:
             is_mock_token = releases_stages[0]["deploy"]["token"]["secure"] == "REPLACE_ME"

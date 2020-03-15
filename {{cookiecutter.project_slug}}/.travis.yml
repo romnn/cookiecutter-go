@@ -23,9 +23,10 @@ jobs:
       os: linux
       go: master
       before_script:
+        - pip install -U pip && pip install invoke
         - go get github.com/mitchellh/gox
       script:
-        - gox -os="linux darwin windows" -arch="amd64" -output="build/${BINARY}-${TRAVIS_TAG}-{{.OS}}-{{.Arch}}" -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose ${MOD}
+        - invoke cc
       deploy:
         provider: releases
         token:

@@ -3,12 +3,10 @@
 [![Build Status](https://travis-ci.{{ cookiecutter.travis_plan }}/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}.svg?branch=master)](https://travis-ci.{{ cookiecutter.travis_plan }}/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }})
 ![GitHub](https://img.shields.io/github/license/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }})
 {% if cookiecutter.project_type != 'tool' -%}
-[![GoDoc](https://godoc.org/{{ cookiecutter.public_import_path }}/{{ cookiecutter.project_slug }}?status.svg)](https://godoc.org/{{ cookiecutter.public_import_path }}/{{ cookiecutter.project_slug }})
-{% endif %}
-{% if cookiecutter.project_type == 'tool' -%}
-[![Docker Pulls](https://img.shields.io/docker/pulls/{{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_slug }})](https://hub.docker.com/r/{{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_slug }})
-{% endif %}
-[![Test Coverage](https://readthedocs.org/projects/{{ cookiecutter.project_slug | replace("_", "-") }}/badge/?version=latest)](https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }})
+[![GoDoc](https://godoc.org/{{ cookiecutter.public_import_path }}/{{ cookiecutter.project_slug }}?status.svg)](https://godoc.org/{{ cookiecutter.public_import_path }}/{{ cookiecutter.project_slug }}){% endif %}
+{% if cookiecutter.project_type != 'module' -%}
+[![Docker Pulls](https://img.shields.io/docker/pulls/{{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_slug }})](https://hub.docker.com/r/{{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_slug }}){% endif %}
+[![Test Coverage](https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/branch/master/graph/badge.svg)](https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }})
 
 Your description goes here...
 
@@ -45,7 +43,7 @@ For more examples, see `examples/`.
 Before you get started, make sure you have installed the following tools::
 
     $ python3 -m pip install -U cookiecutter>=1.4.0
-    $ python3 -m pip install pre-commit bump2version invoke
+    $ python3 -m pip install pre-commit bump2version invoke ruamel.yaml halo
     $ go get -u golang.org/x/tools/cmd/goimports
     $ go get -u golang.org/x/lint/golint
     $ go get -u github.com/fzipp/gocyclo

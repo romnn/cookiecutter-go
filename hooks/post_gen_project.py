@@ -76,11 +76,12 @@ def initialize_git():
 
 def go_mod_init():
     """Creates a go mod init file"""
-    with Halo(text="Initializing go module", spinner="dots", color="violet") as spinner:
-        module_name = '{{ cookiecutter.public_import_path }}'
+    with Halo(text="Initializing go module", spinner="dots", color="blue") as spinner:
+        module_name = '{{ cookiecutter.public_import_path }}/{{ cookiecutter.project_slug }}'
         try:
             run_command(
-                "cd {} && go mod init {}".format(PROJECT_DIRECTORY, module_name),
+                "cd {} && go mod init {}".format(
+                    PROJECT_DIRECTORY, module_name),
                 stderr=subprocess.STDOUT,
                 shell=True,
             )

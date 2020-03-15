@@ -22,11 +22,11 @@ Install ``cookiecutter>=1.4.0``:
 
     $ python3 -m pip install -U cookiecutter>=1.4.0
 
-We'll also need ``pre-commit`` and ``bump2version`` for initializing the new project:
+We'll also need ``pre-commit``, ``bump2version`` and a few other tools for initializing the new project:
 
 .. code-block:: console
 
-    $ python3 -m pip install pre-commit bump2version invoke
+    $ python3 -m pip install pre-commit bump2version invoke ruamel.yaml halo
 
 As part of the ``pre-commit`` hooks, go tools are run. Those must also be installed:
 
