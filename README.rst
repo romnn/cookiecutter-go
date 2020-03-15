@@ -72,7 +72,7 @@ After your project was created:
     $ git push --set-upstream origin master
 
 * Add the repo to your `Travis-CI`_ account. If you have connected travis with GitHub this is done automatically.
-* `Install the Travis CLI`_ and run::
+* If you want to publish pre built releases, `install the Travis CLI`_ and run::
 
     $ travis login                  # Login with your GitHub credentials
     $ travis setup releases         # When using travis.org
@@ -91,7 +91,17 @@ After your project was created:
     $ git commit -m "Add GitHub deployment token"
     $ git push
 
-* Start coding!
+  If you do not want to publish pre-built releases,
+  remove the *Publish release* stage in ``.travis.yml``.
+
+* If you want to publish the tool as a ``docker`` container, connect `hub.docker.com <https://https://hub.docker.com/>`_ with
+  your GitHub account and `create a new repository <https://hub.docker.com/repository/create>`_.
+  
+  Make sure to choose a good name and connect your GitHub repository at the bottom of the page.
+  You must also specify the location of the ``Dockerfile`` (choose the default ``/``).
+  When you are done click *Create and build*.
+
+* Start coding!::
 
   $ go build <your-package>
   $ invoke run -- --name Roman  # When building a tool or both

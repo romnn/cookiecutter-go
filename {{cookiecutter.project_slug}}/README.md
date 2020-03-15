@@ -21,7 +21,11 @@ go get {{ cookiecutter.public_import_path }}/{{ cookiecutter.project_slug }}
 ```
 {% endif %}
 
-You can also download pre built binaries from the [releases page](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/releases).
+You can also download pre built binaries from the [releases page](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/releases), or use the `docker` image:
+
+```bash
+docker pull {{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_slug }}
+```
 
 For a list of options, run with `--help`.
 {% endif %}

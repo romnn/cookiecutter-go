@@ -136,6 +136,9 @@ you still need to manually edit the ``.travis.yml`` config or run:
 
     $ invoke fix-token
 
+If you do not want to publish pre-built releases,
+remove the *Publish release* stage in ``.travis.yml``.
+
 .. [*] For private projects go to `travis-ci.com`_, for public ones go to `travis-ci.org`_ has been a thing.
        But afaik all projects should use `travis-ci.com`_ as of now.
 
@@ -144,7 +147,17 @@ you still need to manually edit the ``.travis.yml`` config or run:
 .. _`travis-ci.com`: https://travis-ci.com/
 .. _the installation guide: https://github.com/travis-ci/travis.rb#installation
 
-|:tada:| Step 7: Start coding!
+|:whale:| Step 7: Setup docker
+-------------------------------
+
+If you want to publish the tool as a ``docker`` container, connect `hub.docker.com <https://https://hub.docker.com/>`_ with
+your GitHub account and `create a new repository <https://hub.docker.com/repository/create>`_.
+  
+Make sure to choose a good name and connect your GitHub repository at the bottom of the page.
+You must also specify the location of the ``Dockerfile`` (choose the default ``/``).
+When you are done click *Create and build*.
+
+|:tada:| Step 8: Start coding!
 -------------------------------
 
 Hopefully this tutorial was helpful to you!

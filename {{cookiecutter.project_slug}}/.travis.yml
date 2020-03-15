@@ -22,9 +22,6 @@ jobs:
       name: Publish release
       os: linux
       go: master
-      before_script:
-        - pip install -U pip && pip install invoke
-        - go get github.com/mitchellh/gox
       script:
         - invoke cc
       deploy:
@@ -42,10 +39,12 @@ install: true
 notifications:
   email: false
 before_script:
+  - pip install -U pip && pip install pre-commit invoke ruamel.yaml
   - go get -u golang.org/x/lint/golint
   - go get github.com/fzipp/gocyclo
+  - go get github.com/mitchellh/gox
 script:
-  - pip install -U pip && pip install pre-commit && pre-commit run --all-files
+  - invoke run pre-commit
   - env GO111MODULE=on go build ${MOD}
   - env GO111MODULE=on go test -v -race -coverprofile=coverage.txt -coverpkg=all -covermode=atomic ./...
 after_success:
