@@ -6,7 +6,7 @@ version = "0.0.1"
 
 test_requirements = [
     "tox",
-    "pytest",
+    "pytest<5.4.0",
     "pytest-cov",
     "pytest-cookies",
     "pytest-xdist",
