@@ -26,7 +26,6 @@ def test(c):
 def docs(c, output="html"):
     """Generate documentation
     """
-    c.run("pipenv run sphinx-apidoc -o {} .".format(DOCS_DIR))
     c.run("pipenv run sphinx-build -b {} {} {}".format(output.lower(), DOCS_DIR, DOCS_BUILD_DIR))
     if output.lower() == "html":
         webbrowser.open(DOCS_INDEX.as_uri())
