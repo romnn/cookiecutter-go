@@ -9,8 +9,11 @@ PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
 
 def remove(filepath):
-    shutil.rmtree(os.path.join(PROJECT_DIRECTORY, filepath), ignore_errors=True)
-    # os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
+    path = os.path.join(PROJECT_DIRECTORY, filepath)
+    if os.path.isdir(path):
+        shutil.rmtree(path, ignore_errors=True)
+    else:
+        os.remove(path)
 
 
 class _Halo:
@@ -106,3 +109,5 @@ if __name__ == "__main__":
         remove('.dockerignore')
     if '{{ cookiecutter.project_type }}' != 'both':
         remove('cmd/')
+    if '{{ cookiecutter.project_type }}' == 'tool':
+        remove('examples/')
