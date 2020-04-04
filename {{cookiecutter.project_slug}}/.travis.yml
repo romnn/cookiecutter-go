@@ -44,7 +44,7 @@ before_script:
   - go get github.com/fzipp/gocyclo
   - go get github.com/mitchellh/gox
 script:
-  - invoke run pre-commit
+  - invoke pre-commit
   - env GO111MODULE=on go build ${MOD}
   - env GO111MODULE=on go test -v -race -coverprofile=coverage.txt -coverpkg=all -covermode=atomic ./...
 after_success:
