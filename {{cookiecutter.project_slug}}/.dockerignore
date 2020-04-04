@@ -13,6 +13,7 @@
 
 # Unignore Dockerfile and other useful files
 !**/Dockerfile
+!**/.dockerignore
 !**/LICENSE
 
 ### Above combination will ignore all files without extension ###
