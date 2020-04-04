@@ -50,7 +50,7 @@ Before you get started, make sure you have installed the following tools::
 **Remember**: To be able to excecute the tools downloaded with ``go get``, 
 make sure to include ``$GOPATH/bin`` in your ``$PATH``.
 If ``echo $GOPATH`` does not give you a path make sure to set it
-(``export GOPATH="$HOME/go`` for example). On order for your changes to persist, 
+(``export GOPATH="$HOME/go"`` for example). On order for your changes to persist, 
 do not forget to add these to your shells ``.bashrc``.
 
 Create a new go project
@@ -67,18 +67,20 @@ After your project was created:
     $ cd <mypackage>
     $ git remote add origin git@github.com:myusername/mypackage.git
     $ git add .
-    $ pre-commit run --all-files && pre-commit run --all-files
+    $ pre-commit run --all-files
+    $ git add .
     $ git commit -m "Initial commit"
     $ git push --set-upstream origin master
 
 * Add the repo to your `Travis-CI`_ account. If you have connected travis with GitHub this is done automatically.
-* If you want to publish pre built releases, `install the Travis CLI`_ and run::
+* If you choose *tool* or *both* for your project and want to publish pre built release binaries,
+  `install the Travis CLI`_ and run::
 
     $ travis login                  # Login with your GitHub credentials
     $ travis setup releases         # When using travis.org
     $ travis setup releases --com   # When using travis.com
 
-  to automatically encrypt a GitHub Oauth token into your ``.travis.yml`` config.
+  to automatically encrypt a GitHub OAuth token into your ``.travis.yml`` config.
 
   Unfortunately, the travis cli tool appends the token at the config's top level,
   so you need to manually edit the ``.travis.yml`` config or run::
@@ -88,7 +90,7 @@ After your project was created:
   Now you can push the updated ``.travis.yml`` to your remote repository::
 
     $ git add .travis.yml
-    $ git commit -m "Add GitHub deployment token"
+    $ git commit -m "Add GitHub releases token"
     $ git push
 
   If you do not want to publish pre-built releases,
@@ -97,14 +99,14 @@ After your project was created:
 * If you want to publish the tool as a ``docker`` container, connect `hub.docker.com <https://https://hub.docker.com/>`_ with
   your GitHub account and `create a new repository <https://hub.docker.com/repository/create>`_.
   
-  Make sure to choose a good name and connect your GitHub repository at the bottom of the page.
+  Make sure to choose a matching name and connect your GitHub repository at the bottom of the page.
   You must also specify the location of the ``Dockerfile`` (choose the default ``/``).
   When you are done click *Create and build*.
 
 * Start coding!::
 
   $ go build <your-package>
-  $ invoke run -- --name Roman  # When building a tool or both
+  $ invoke run -- --name Roman  # If you chose "tool" or "both"
   $ pre-commit run --all-files
 
 * Release new versions of your package by pushing a new tag to master::
@@ -120,4 +122,4 @@ Documentation
 
 If you need more guidance I encourage you to have a look at the `more extensive documentation`_.
 
-.. _`more extensive documentation`: https://romnnn-cookiecutter-go.readthedocs.io/en/latest/
+.. _`more extensive documentation`: https://cookiecutter-go.readthedocs.io/en/latest/

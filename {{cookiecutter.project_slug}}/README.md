@@ -1,12 +1,13 @@
 ## {{ cookiecutter.project_name }}
 
 [![Build Status](https://travis-ci.{{ cookiecutter.travis_plan }}/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}.svg?branch=master)](https://travis-ci.{{ cookiecutter.travis_plan }}/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }})
-![GitHub](https://img.shields.io/github/license/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }})
+[![GitHub](https://img.shields.io/github/license/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }})](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }})
 {% if cookiecutter.project_type != 'tool' -%}
-[![GoDoc](https://godoc.org/{{ cookiecutter.public_import_path }}/{{ cookiecutter.project_slug }}?status.svg)](https://godoc.org/{{ cookiecutter.public_import_path }}/{{ cookiecutter.project_slug }}){% endif %}
-{% if cookiecutter.project_type != 'module' -%}
-[![Docker Pulls](https://img.shields.io/docker/pulls/{{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_slug }})](https://hub.docker.com/r/{{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_slug }}){% endif %}
-[![Test Coverage](https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/branch/master/graph/badge.svg)](https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }})
+[![GoDoc](https://godoc.org/{{ cookiecutter.public_import_path }}/{{ cookiecutter.project_slug }}?status.svg)](https://godoc.org/{{ cookiecutter.public_import_path }}/{{ cookiecutter.project_slug }})
+{%- endif %} {% if cookiecutter.project_type != 'module' -%}
+[![Docker Pulls](https://img.shields.io/docker/pulls/{{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_slug }})](https://hub.docker.com/r/{{ cookiecutter.docker_hub_username }}/{{ cookiecutter.project_slug }})
+{%- endif %} [![Test Coverage](https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/branch/master/graph/badge.svg)](https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }})
+[![Release](https://img.shields.io/github/release/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }})](https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/releases/latest)
 
 Your description goes here...
 
@@ -56,7 +57,7 @@ Before you get started, make sure you have installed the following tools::
 **Remember**: To be able to excecute the tools downloaded with `go get`, 
 make sure to include `$GOPATH/bin` in your `$PATH`.
 If `echo $GOPATH` does not give you a path make sure to run
-(`export GOPATH="$HOME/go` to set it). In order for your changes to persist, 
+(`export GOPATH="$HOME/go"` to set it). In order for your changes to persist, 
 do not forget to add these to your shells `.bashrc`.
 
 With the tools in place, it is strongly advised to install the git commit hooks to make sure checks are passing in CI:
