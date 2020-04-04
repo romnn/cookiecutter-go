@@ -10,9 +10,7 @@ import os
 
 from invoke import task
 import webbrowser
-from pathlib import Path
 
-Path().expanduser()
 yaml = YAML()
 
 PKG = "{{ cookiecutter.public_import_path }}/{{ cookiecutter.project_slug }}"
@@ -22,9 +20,9 @@ CMD_PKG = PKG
 CMD_PKG = "{{ cookiecutter.public_import_path }}/{{ cookiecutter.project_slug }}/cmd/{{ cookiecutter.project_slug }}"
 {% endif %}
 
-ROOT_DIR = Path(__file__).parent
-BUILD_DIR = ROOT_DIR.joinpath("build")
-TRAVIS_CONFIG_FILE = ROOT_DIR.joinpath(".travis.yml")
+ROOT_DIR = os.path.dirname(os.path.realpath(__file__))
+BUILD_DIR = os.path.join(ROOT_DIR, "build")
+TRAVIS_CONFIG_FILE = os.path.join(ROOT_DIR, ".travis.yml")
 
 
 def _delete_file(file):
