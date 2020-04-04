@@ -3,7 +3,6 @@ Tasks for maintaining the project.
 Execute 'invoke --list' for guidance on using Invoke
 """
 import shutil
-from ruamel.yaml import YAML
 import pprint
 import sys
 import os
@@ -164,6 +163,7 @@ def _create(d, *keys):
 
 
 def _fix_token(config_file=None, force=False, verify=True):
+    from ruamel.yaml import YAML
     config_file = config_file or TRAVIS_CONFIG_FILE
     with open(config_file, "r") as _file:
         try:

@@ -24,5 +24,6 @@ invoke = "*"
 pre-commit = "*"
 bump2version = "*"
 cookiecutter = "*"
+pylint = "*"
 
 [packages]
