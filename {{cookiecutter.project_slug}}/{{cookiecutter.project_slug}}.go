@@ -1,8 +1,10 @@
-package {{ cookiecutter.project_slug }}
-
 {% if cookiecutter.project_type == 'tool' -%}
+package main
+
 // Rev is set on build time to the git HEAD
 var Rev = ""
+{% else %}
+package {{ cookiecutter.project_slug }}
 {% endif %}
 
 // Version is incremented using bump2version
@@ -15,6 +17,4 @@ func Shout(s string) string {
 
 {% if cookiecutter.project_type == 'tool' -%}
 // TODO Add cli and everything here
-{% else %}
-
 {% endif %}
