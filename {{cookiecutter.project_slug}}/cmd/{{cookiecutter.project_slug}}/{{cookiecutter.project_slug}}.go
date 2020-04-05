@@ -5,6 +5,8 @@ import (
 	"fmt"
 
 	"{{ cookiecutter.public_import_path }}/{{ cookiecutter.project_slug }}"
+	"github.com/romnnn/flags4urfavecli/flags"
+	"github.com/romnnn/flags4urfavecli/values"
 	log "github.com/sirupsen/logrus"
 	"github.com/urfave/cli/v2"
 )
@@ -23,27 +25,32 @@ func serve(c *cli.Context) error {
 }
 
 
-func run(args []string) error {
+func main() {
 	app := &cli.App{
 		Name:  "{{ cookiecutter.project_slug }}",
 		Usage: "",
 		Flags: []cli.Flag{
-			&cli.StringFlag{
-				Name:    "name",
-				Aliases: []string{"n"},
-				Usage:   "Your name",
+			&cli.GenericFlag{
+				Name: "format",
+				Value: &values.EnumValue{
+					Enum:    []string{"json", "xml", "csv"},
+					Default: "xml",
+				},
+				EnvVars: []string{"FILEFORMAT"},
+				Usage:   "input file format",
 			},
+			&flags.LogLevelFlag,
 		},
-		Action: func(c *cli.Context) error {
+		Action: func(ctx *cli.Context) error {
+			if level, err := log.ParseLevel(ctx.String("log")); err == nil {
+				log.SetLevel(level)
+			}
+			log.Infof("Format is: %s", ctx.String("format"))
 			err := serve(c)
 			return err
 		},
 	}
-	return app.Run(args)
-}
-
-func main() {
-    err := run(os.Args)
+	err := app.Run(os.Args)
 	if err != nil {
 		log.Fatal(err)
 	}
