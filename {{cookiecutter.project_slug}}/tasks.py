@@ -10,8 +10,6 @@ import os
 from invoke import task
 import webbrowser
 
-yaml = YAML()
-
 PKG = "{{ cookiecutter.public_import_path }}/{{ cookiecutter.project_slug }}"
 CMD_PKG = PKG
 
@@ -164,6 +162,7 @@ def _create(d, *keys):
 
 def _fix_token(config_file=None, force=False, verify=True):
     from ruamel.yaml import YAML
+    yaml = YAML()
     config_file = config_file or TRAVIS_CONFIG_FILE
     with open(config_file, "r") as _file:
         try:
