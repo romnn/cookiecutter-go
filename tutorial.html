@@ -142,9 +142,11 @@
                 
                   <li class="toctree-l2"><a href="#octopus-step-3-create-a-github-repo" class="reference internal">🐙 Step 3: Create a GitHub Repo</a></li>
                 
-                  <li class="toctree-l2"><a href="#hammer-and-wrench-step-4-first-build" class="reference internal">🛠 Step 4: First build</a></li>
+                  <li class="toctree-l2"><a href="#hammer-and-wrench-step-4-first-build" class="reference internal">🛠️ Step 4: First build</a></li>
                 
-                  <li class="toctree-l2"><a href="#construction-worker-step-6-set-up-travisci" class="reference internal">👷 Step 6: Set up TravisCI</a></li>
+                  <li class="toctree-l2"><a href="#construction-worker-step-5-set-up-travisci" class="reference internal">👷 Step 5: Set up TravisCI</a></li>
+                
+                  <li class="toctree-l2"><a href="#whale-step-6-setup-docker" class="reference internal">🐳 Step 6: Setup docker</a></li>
                 
                   <li class="toctree-l2"><a href="#tada-step-7-start-coding" class="reference internal">🎉 Step 7: Start coding!</a></li>
                 
@@ -226,11 +228,11 @@ If you are new to Git and GitHub, you should probably spend a few minutes on som
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python3 -m pip install -U cookiecutter&gt;<span class="o">=</span><span class="m">1</span>.4.0
 </pre></div>
 </div>
-<p>We’ll also need <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> and <code class="docutils literal notranslate"><span class="pre">bump2version</span></code> for initializing the new project:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python3 -m pip install pre-commit bump2version
+<p>We’ll also need <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code>, <code class="docutils literal notranslate"><span class="pre">bump2version</span></code> and a few other tools for initializing the new project:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> python3 -m pip install pre-commit bump2version invoke ruamel.yaml halo
 </pre></div>
 </div>
-<p>As part of the <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> hooks, go tools are run. Those must also be installed:</p>
+<p>As part of the <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> hooks, some <code class="docutils literal notranslate"><span class="pre">golang</span></code> tools are run. Those must also be installed:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> go get -u golang.org/x/tools/cmd/goimports
 <span class="gp">$</span> go get -u golang.org/x/lint/golint
 <span class="gp">$</span> go get -u github.com/fzipp/gocyclo
@@ -242,7 +244,7 @@ If you are new to Git and GitHub, you should probably spend a few minutes on som
 <p>To be able to excecute the tools downloaded with <code class="docutils literal notranslate"><span class="pre">go</span> <span class="pre">get</span></code>,
 make sure to include <code class="docutils literal notranslate"><span class="pre">$GOPATH/bin</span></code> in your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>.
 If <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$GOPATH</span></code> does not give you a path make sure to set it
-(<code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">GOPATH=&quot;$HOME/go</span></code> for example). On order for your changes to persist,
+(<code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">GOPATH=&quot;$HOME/go&quot;</span></code> for example). On order for your changes to persist,
 do not forget to add these to your shells <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>.</p>
 </div>
 </div>
@@ -262,43 +264,41 @@ If you don’t know what to enter, stick with the defaults.</p>
 This is so that Travis CI can find it when we get to Step 5.</p>
 <p>You will find one folder named after the <code class="docutils literal notranslate"><span class="pre">[project_slug]</span></code>.
 Move into this folder, and then setup git to use your GitHub repo and upload the code:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> mypackage
-<span class="gp">$</span> git init .
-<span class="gp">$</span> git add .
-<span class="gp">$</span> git commit -m <span class="s2">&quot;Initial commit.&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">cd</span> &lt;mypackage&gt;
 <span class="gp">$</span> git remote add origin git@github.com:myusername/mypackage.git
-<span class="gp">$</span> git push -u origin master
+<span class="gp">$</span> git add .
+<span class="gp">$</span> pre-commit run --all-files
+<span class="gp">$</span> git add .
+<span class="gp">$</span> git commit -m <span class="s2">&quot;Initial commit&quot;</span>
+<span class="gp">$</span> git push --set-upstream origin master
 </pre></div>
 </div>
 <p>Where <code class="docutils literal notranslate"><span class="pre">myusername</span></code> and <code class="docutils literal notranslate"><span class="pre">mypackage</span></code> are adjusted for your username and package name.</p>
 <p>You can use HTTPS to push the repository, but it’s more convenient to use a ssh key to push the repo.
-You can <a class="reference external" href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">Generate</a> a key or <a class="reference external" href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">Add</a> an existing one.</p>
+You can <a class="reference external" href="https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/">generate</a> a key or <a class="reference external" href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">add</a> an existing one.</p>
 </div>
 <div class="section" id="hammer-and-wrench-step-4-first-build">
-<h2>🛠 Step 4: First build<a class="headerlink" href="#hammer-and-wrench-step-4-first-build" title="Permalink to this headline">¶</a></h2>
+<h2>🛠️ Step 4: First build<a class="headerlink" href="#hammer-and-wrench-step-4-first-build" title="Permalink to this headline">¶</a></h2>
 <p>You should still be in the folder containing the <code class="docutils literal notranslate"><span class="pre">go.mod</span></code> file.</p>
 <p>Go ahead and give building the initial project a go (no pun intended):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">code</span><span class="o">-</span><span class="n">block</span><span class="p">::</span> <span class="n">console</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> go build &lt;your-package&gt;
 </pre></div>
 </div>
-<blockquote>
-<div><p>$ go build &lt;your-package&gt;</p>
-</div></blockquote>
 <p>You can also test the entire project by running the pre commit hooks, which should have been installed
 into your git repository:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pre-commit run --all-files
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> invoke pre-commit
 </pre></div>
 </div>
 <p>Next to building, this will also format and lint your code amongst other things.</p>
 </div>
-<div class="section" id="construction-worker-step-6-set-up-travisci">
-<h2>👷 Step 6: Set up TravisCI<a class="headerlink" href="#construction-worker-step-6-set-up-travisci" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="construction-worker-step-5-set-up-travisci">
+<h2>👷 Step 5: Set up TravisCI<a class="headerlink" href="#construction-worker-step-5-set-up-travisci" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://travis-ci.com/">Travis-CI</a> <a class="footnote-reference brackets" href="#id2" id="id1">*</a> is a continuous integration tool used to prevent integration problems.
 Every commit to the master branch will trigger automated builds of the application.</p>
 <p>Add the repository to your Travis-CI account by activating it.
 If you have connected travis with GitHub this is done automatically.
 If you have not yet installed the Travis CLI (Command line interface), follow <a class="reference external" href="https://github.com/travis-ci/travis.rb#installation">the installation guide</a>.</p>
-<p>With the Travis CLI, setup automatic upload of binaries to the GitHub releases like so:</p>
+<p>With the Travis CLI, setup automatic upload of binaries to GitHub releases by entering:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> travis login
 <span class="gp">$</span> travis setup releases         <span class="c1"># When using travis.org</span>
 <span class="gp">$</span> travis setup releases --com   <span class="c1"># When using travis.com</span>
@@ -308,24 +308,34 @@ If you have not yet installed the Travis CLI (Command line interface), follow <a
 <p class="admonition-title">Note</p>
 <p>Both commands will ask you for your GitHub credentials.
 If you are worried, skip <code class="docutils literal notranslate"><span class="pre">travis</span> <span class="pre">login</span></code>, create a GitHub token manually
-and use <code class="docutils literal notranslate"><span class="pre">travis</span> <span class="pre">encrypt</span></code>…</p>
+and use <code class="docutils literal notranslate"><span class="pre">travis</span> <span class="pre">encrypt</span></code>. This is not part of the tutorial.</p>
 </div>
 <p>After running <code class="docutils literal notranslate"><span class="pre">setup</span> <span class="pre">releases</span></code>, your <code class="docutils literal notranslate"><span class="pre">.travis.yml</span></code> config will:</p>
 <ul class="simple">
-<li><p>Include the encrypted GitHub oauth token</p></li>
-<li><p>Be able to automatically deploy binaries to releases when you push a new tag to the master branch.</p></li>
+<li><p>include the encrypted GitHub OAuth token</p></li>
+<li><p>be able to automatically deploy binaries to releases when you push a new tag to the master branch.</p></li>
 </ul>
 <p>Because the token is appended outside of any build stage,
 you still need to manually edit the <code class="docutils literal notranslate"><span class="pre">.travis.yml</span></code> config or run:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> invoke fix-token
 </pre></div>
 </div>
+<p>If you do not want to publish pre-built releases,
+remove the <em>Publish release</em> stage in <code class="docutils literal notranslate"><span class="pre">.travis.yml</span></code>.</p>
 <dl class="footnote brackets">
 <dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">*</a></span></dt>
-<dd><p>For private projects go to <a class="reference external" href="https://travis-ci.com/">travis-ci.com</a>, for public ones go to <a class="reference external" href="https://travis-ci.org/">travis-ci.org</a> has been a thing.
-But afaik all projects should use <a class="reference external" href="https://travis-ci.com/">travis-ci.com</a> as of now.</p>
+<dd><p>Private projects will be on <a class="reference external" href="https://travis-ci.com/">travis-ci.com</a>, public ones on <a class="reference external" href="https://travis-ci.org/">travis-ci.org</a>. This has long been a thing,
+but afaik all projects should use <a class="reference external" href="https://travis-ci.com/">travis-ci.com</a> as of now?</p>
 </dd>
 </dl>
+</div>
+<div class="section" id="whale-step-6-setup-docker">
+<h2>🐳 Step 6: Setup docker<a class="headerlink" href="#whale-step-6-setup-docker" title="Permalink to this headline">¶</a></h2>
+<p>If you want to publish the tool as a <code class="docutils literal notranslate"><span class="pre">docker</span></code> container, connect <a class="reference external" href="https://https://hub.docker.com/">hub.docker.com</a> with
+your GitHub account and <a class="reference external" href="https://hub.docker.com/repository/create">create a new repository</a>.</p>
+<p>Make sure to choose a matching name and connect your GitHub repository at the bottom of the page.
+You must also specify the location of the <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> (choose the default <code class="docutils literal notranslate"><span class="pre">/</span></code>).
+When you are done click <em>Create and build</em>.</p>
 </div>
 <div class="section" id="tada-step-7-start-coding">
 <h2>🎉 Step 7: Start coding!<a class="headerlink" href="#tada-step-7-start-coding" title="Permalink to this headline">¶</a></h2>
@@ -348,7 +358,7 @@ But afaik all projects should use <a class="reference external" href="https://tr
 </ul><div class="footer" role="contentinfo">
       &#169; Copyright 2020, romnnn.
     <br>
-    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.0 with <a href="https://github.com/romnnn/sphinx_press_theme">Press Theme</a>.
 </div>
             </div>
           </div>

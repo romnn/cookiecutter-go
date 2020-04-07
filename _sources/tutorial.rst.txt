@@ -22,13 +22,13 @@ Install ``cookiecutter>=1.4.0``:
 
     $ python3 -m pip install -U cookiecutter>=1.4.0
 
-We'll also need ``pre-commit`` and ``bump2version`` for initializing the new project:
+We'll also need ``pre-commit``, ``bump2version`` and a few other tools for initializing the new project:
 
 .. code-block:: console
 
-    $ python3 -m pip install pre-commit bump2version
+    $ python3 -m pip install pre-commit bump2version invoke ruamel.yaml halo
 
-As part of the ``pre-commit`` hooks, go tools are run. Those must also be installed:
+As part of the ``pre-commit`` hooks, some ``golang`` tools are run. Those must also be installed:
 
 .. code-block:: console
 
@@ -40,7 +40,7 @@ As part of the ``pre-commit`` hooks, go tools are run. Those must also be instal
 .. warning::    To be able to excecute the tools downloaded with ``go get``, 
                 make sure to include ``$GOPATH/bin`` in your ``$PATH``.
                 If ``echo $GOPATH`` does not give you a path make sure to set it
-                (``export GOPATH="$HOME/go`` for example). On order for your changes to persist, 
+                (``export GOPATH="$HOME/go"`` for example). On order for your changes to persist, 
                 do not forget to add these to your shells ``.bashrc``.
 
 |:package:| Step 2: Generate Your Go Project
@@ -69,40 +69,43 @@ Move into this folder, and then setup git to use your GitHub repo and upload the
 
 .. code-block:: console
 
-    $ cd mypackage
-    $ git init .
-    $ git add .
-    $ git commit -m "Initial commit."
+    $ cd <mypackage>
     $ git remote add origin git@github.com:myusername/mypackage.git
-    $ git push -u origin master
+    $ git add .
+    $ pre-commit run --all-files
+    $ git add .
+    $ git commit -m "Initial commit"
+    $ git push --set-upstream origin master
 
 Where ``myusername`` and ``mypackage`` are adjusted for your username and package name.
 
 You can use HTTPS to push the repository, but it's more convenient to use a ssh key to push the repo.
-You can `Generate`_ a key or `Add`_ an existing one.
+You can `generate`_ a key or `add`_ an existing one.
 
-.. _`Generate`: https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
-.. _`Add`: https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
+.. _`generate`: https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+.. _`add`: https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
 
 |:hammer_and_wrench:| Step 4: First build
 --------------------------------------------------------------
 
 You should still be in the folder containing the ``go.mod`` file.
 
-Go ahead and give building the initial project a go (no pun intended)::
+Go ahead and give building the initial project a go (no pun intended):
 
 .. code-block:: console
 
     $ go build <your-package>
 
 You can also test the entire project by running the pre commit hooks, which should have been installed
-into your git repository::
+into your git repository:
 
-  $ pre-commit run --all-files
+.. code-block:: console
+
+    $ invoke pre-commit
 
 Next to building, this will also format and lint your code amongst other things.
 
-|:construction_worker:| Step 6: Set up TravisCI
+|:construction_worker:| Step 5: Set up TravisCI
 -----------------------------------------------
 
 `Travis-CI`_ [*]_ is a continuous integration tool used to prevent integration problems.
@@ -112,7 +115,7 @@ Add the repository to your Travis-CI account by activating it.
 If you have connected travis with GitHub this is done automatically.
 If you have not yet installed the Travis CLI (Command line interface), follow `the installation guide`_.
 
-With the Travis CLI, setup automatic upload of binaries to the GitHub releases like so:
+With the Travis CLI, setup automatic upload of binaries to GitHub releases by entering:
 
 .. code-block:: console
 
@@ -122,12 +125,12 @@ With the Travis CLI, setup automatic upload of binaries to the GitHub releases l
 
 .. note:: Both commands will ask you for your GitHub credentials.
           If you are worried, skip ``travis login``, create a GitHub token manually
-          and use ``travis encrypt``...
+          and use ``travis encrypt``. This is not part of the tutorial.
 
 After running ``setup releases``, your ``.travis.yml`` config will:
 
-* Include the encrypted GitHub oauth token
-* Be able to automatically deploy binaries to releases when you push a new tag to the master branch.
+* include the encrypted GitHub OAuth token
+* be able to automatically deploy binaries to releases when you push a new tag to the master branch.
 
 Because the token is appended outside of any build stage,
 you still need to manually edit the ``.travis.yml`` config or run:
@@ -136,13 +139,26 @@ you still need to manually edit the ``.travis.yml`` config or run:
 
     $ invoke fix-token
 
-.. [*] For private projects go to `travis-ci.com`_, for public ones go to `travis-ci.org`_ has been a thing.
-       But afaik all projects should use `travis-ci.com`_ as of now.
+If you do not want to publish pre-built releases,
+remove the *Publish release* stage in ``.travis.yml``.
+
+.. [*] Private projects will be on `travis-ci.com`_, public ones on `travis-ci.org`_. This has long been a thing,
+       but afaik all projects should use `travis-ci.com`_ as of now?
 
 .. _`Travis-CI`: https://travis-ci.com/
 .. _`travis-ci.org`: https://travis-ci.org/
 .. _`travis-ci.com`: https://travis-ci.com/
 .. _the installation guide: https://github.com/travis-ci/travis.rb#installation
+
+|:whale:| Step 6: Setup docker
+-------------------------------
+
+If you want to publish the tool as a ``docker`` container, connect `hub.docker.com <https://https://hub.docker.com/>`_ with
+your GitHub account and `create a new repository <https://hub.docker.com/repository/create>`_.
+  
+Make sure to choose a matching name and connect your GitHub repository at the bottom of the page.
+You must also specify the location of the ``Dockerfile`` (choose the default ``/``).
+When you are done click *Create and build*.
 
 |:tada:| Step 7: Start coding!
 -------------------------------
