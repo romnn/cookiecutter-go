@@ -18,8 +18,8 @@ var Rev = ""
 const Version = "0.0.1"
 
 
-func serve(c *cli.Context) error {
-	greeting := fmt.Sprintf("Hi %s", c.String("name"))
+func serve(cliCtx *cli.Context) error {
+	greeting := fmt.Sprintf("Hi %s", cliCtx.String("name"))
 	log.Info({{ cookiecutter.project_slug }}.Shout(greeting))
 	return nil
 }
@@ -46,7 +46,7 @@ func main() {
 				log.SetLevel(level)
 			}
 			log.Infof("Format is: %s", ctx.String("format"))
-			err := serve(c)
+			err := serve(ctx)
 			return err
 		},
 	}
