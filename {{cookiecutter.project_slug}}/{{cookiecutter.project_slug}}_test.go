@@ -1,4 +1,8 @@
+{% if cookiecutter.project_type == 'tool' -%}
+package main
+{% else %}
 package {{ cookiecutter.project_slug }}
+{% endif %}
 
 import "testing"
 
