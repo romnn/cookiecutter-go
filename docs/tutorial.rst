@@ -34,7 +34,7 @@ As part of the ``pre-commit`` hooks, some ``golang`` tools are run. Those must a
 
     $ go get -u golang.org/x/tools/cmd/goimports
     $ go get -u golang.org/x/lint/golint
-    $ go get -u github.com/fzipp/gocyclo
+    $ go get -u github.com/fzipp/gocyclo/cmd/gocyclo
     $ go get -u github.com/mitchellh/gox  # if you want to test building on different architectures and platforms
 
 .. warning::    To be able to excecute the tools downloaded with ``go get``, 

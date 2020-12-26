@@ -44,7 +44,7 @@ Before you get started, make sure you have installed the following tools::
     $ python3 -m pip install pre-commit bump2version invoke ruamel.yaml halo
     $ go get -u golang.org/x/tools/cmd/goimports
     $ go get -u golang.org/x/lint/golint
-    $ go get -u github.com/fzipp/gocyclo
+    $ go get -u github.com/fzipp/gocyclo/cmd/gocyclo
     $ go get -u github.com/mitchellh/gox  # if you want to test building on different architectures
 
 **Remember**: To be able to excecute the tools downloaded with ``go get``, 

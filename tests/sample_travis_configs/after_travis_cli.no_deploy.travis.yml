@@ -27,7 +27,7 @@ notifications:
   email: false
 before_script:
   - go get -u golang.org/x/lint/golint
-  - go get github.com/fzipp/gocyclo
+  - go get github.com/fzipp/gocyclo/cmd/gocyclo
 script:
   - pip install -U pip && pip install pre-commit && pre-commit run --all-files
   - env GO111MODULE=on go build ${MOD}
