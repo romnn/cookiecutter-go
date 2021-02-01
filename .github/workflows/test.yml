@@ -1,0 +1,18 @@
+name: test
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: [3.6, 3.8]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install tox
+      - name: test
+        run: tox -e codecov
