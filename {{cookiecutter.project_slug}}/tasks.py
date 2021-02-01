@@ -104,7 +104,11 @@ def cc(c):
         output = "%s-%s-{{.OS}}-{{.Arch}}" % (BINARY, TRAVIS_TAG)
     {% endraw %}
     c.run(
-        'gox -os="linux darwin windows" -arch="amd64" -output="build/%s" -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose %s'
+        'gox -os="darwin windows" -arch="amd64" -output="build/%s" -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose %s'
+        % (output, CMD_PKG)
+    )
+    c.run(
+        'gox -os="linux" -arch="amd64 arm" -output="build/%s" -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose %s'
         % (output, CMD_PKG)
     )
 {% endif %}
