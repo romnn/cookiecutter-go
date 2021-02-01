@@ -19,7 +19,7 @@ def test(c):
     Run tests
     """
     pty = platform.system() == 'Linux'
-    c.run("pipenv run pytest --cov={}".format(ROOT_DIR), pty=pty)
+    c.run("pipenv run pytest", pty=pty)
 
 
 @task(help={'output': "Generated documentation output format (default is html)"})
