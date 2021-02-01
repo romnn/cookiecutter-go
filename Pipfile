@@ -6,18 +6,14 @@ name = "pypi"
 [dev-packages]
 # Testing
 tox = "*"
-pytest = "<5.4.0"
+pytest = "<6.0.0"
 pytest-cov = "*"
 pytest-cookies = "*"
-pytest-xdist = "*"
+pytest-xdist = "<=1.34.0"
 pytest-sugar = "*"
 # Coverage
 coverage = "*"
 codecov = "*"
-# Docs
-sphinx = ">=2.0"
-romnn_sphinx_press_theme = "*"
-sphinxemoji = "*"
 # Tools
 "ruamel.yaml" = "*"
 invoke = "*"
