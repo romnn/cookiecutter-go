@@ -4,12 +4,9 @@
 Cookiecutter Go Template
 ===============================
 
-.. image:: https://travis-ci.com/romnn/cookiecutter-go.svg?branch=master
-    :target: https://travis-ci.com/romnn/cookiecutter-go
+.. image:: https://github.com/romnn/cookiecutter-go/workflows/test/badge.svg
+    :target: https://github.com/romnn/cookiecutter-go/actions 
     :alt: Build status
-.. image:: https://readthedocs.org/projects/cookiecutter-go/badge/?version=latest
-    :target: https://cookiecutter-go.readthedocs.io/en/latest/?badge=latest
-    :alt: Documentation Status
 
 Opinionated ``cookiecutter`` template for golang projects.
 
