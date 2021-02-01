@@ -41,7 +41,7 @@ notifications:
 before_script:
   - pip install -U pip && pip install pre-commit invoke ruamel.yaml
   - go get -u golang.org/x/lint/golint
-  - go get github.com/fzipp/gocyclo
+  - go get github.com/fzipp/gocyclo/cmd/gocyclo
   - go get github.com/mitchellh/gox
   # Do not change go.mod and go.sum
   - git checkout go.mod go.sum
