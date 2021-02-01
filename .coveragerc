@@ -1,7 +1,11 @@
 [run]
-source = cookiecutter-go
+include =
+    hooks
+    tests
+    setup.py
+    tasks.py
 omit =
-    .tox
+    .tox/*
     tests
     tasks.py
     setup.py
