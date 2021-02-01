@@ -5,6 +5,12 @@ omit =
     tests
     tasks.py
     setup.py
+    {{cookiecutter.project_slug}}/.dockerignore
+    {{cookiecutter.project_slug}}/.gitattributes
+    {{cookiecutter.project_slug}}/.gitignore
+    {{cookiecutter.project_slug}}/Dockerfile
+    {{cookiecutter.project_slug}}/LICENSE
+    {{cookiecutter.project_slug}}/tasks.py
 
 [report]
 exclude_lines =
