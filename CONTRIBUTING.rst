@@ -13,7 +13,7 @@ How can I contribute?
 Report Bugs
 ~~~~~~~~~~~
 
-Report bugs at https://github.com/romnnn/cookiecutter-go/issues.
+Report bugs at https://github.com/romnn/cookiecutter-go/issues.
 
 If you are reporting a bug, please include:
 
@@ -43,7 +43,7 @@ articles, and such.
 Submit Feedback
 ~~~~~~~~~~~~~~~
 
-The best way to send feedback is to `file an issue <https://github.com/romnnn/cookiecutter-go/issues>`_ on GitHub.
+The best way to send feedback is to `file an issue <https://github.com/romnn/cookiecutter-go/issues>`_ on GitHub.
 
 If you are proposing a feature:
 
@@ -57,7 +57,7 @@ Get Started!
 
 Ready to contribute? Here's how to set up ``cookiecutter-go`` for local development.
 
-1. Fork the `cookiecutter-go repo <https://github.com/romnnn/cookiecutter-go>`_ on GitHub.
+1. Fork the `cookiecutter-go repo <https://github.com/romnn/cookiecutter-go>`_ on GitHub.
 2. Clone your fork locally::
 
     $ git clone git@github.com:your_name_here/cookiecutter-go.git
@@ -96,7 +96,7 @@ Before you submit a pull request, check that it meets these guidelines:
    your new functionality into a function with a docstring and add the
    feature to the list in ``README.rst``.
 3. The pull request should work for python 3.6+ and the latest version of golang. Check the
-   `build status of your pull request <https://travis-ci.org/romnnn/cookiecutter-go/pull_requests>`_
+   `build status of your pull request <https://travis-ci.org/romnn/cookiecutter-go/pull_requests>`_
    and make sure that all tests pass for all supported python versions.
 
 Add a New Test
@@ -135,4 +135,4 @@ After merging the changes, tag your commits with a new version and push to GitHu
 $ bump2version (major | minor | patch)
 $ git push --follow-tags
 
-.. _GitHub issues: https://github.com/romnnn/cookiecutter-go/issues
+.. _GitHub issues: https://github.com/romnn/cookiecutter-go/issues

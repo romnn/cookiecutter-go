@@ -54,9 +54,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'romnnn-cookiecutter-go'
-copyright = '%d, romnnn' % year
-author = 'romnnn'
+project = 'romnn-cookiecutter-go'
+copyright = '%d, romnn' % year
+author = 'romnn'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -113,7 +113,7 @@ pygments_style = None
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes. Default: sphinx_rtd_theme
 #
-html_theme = 'press'  # Install with pip install romnnn_sphinx_press_theme
+html_theme = 'press'  # Install with pip install romnn_sphinx_press_theme
 
 # Theme options are theme-specific and customize the look and feel of a
 # theme further.  For a list of options available for each theme, see the
@@ -121,7 +121,7 @@ html_theme = 'press'  # Install with pip install romnnn_sphinx_press_theme
 #
 html_theme_options = {
   "external_links": [
-      ("Github", "https://github.com/romnnn/cookiecutter-go")
+      ("Github", "https://github.com/romnn/cookiecutter-go")
   ]
 }
 

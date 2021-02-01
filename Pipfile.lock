@@ -470,7 +470,7 @@
             ],
             "version": "==2.23.0"
         },
-        "romnnn-sphinx-press-theme": {
+        "romnn-sphinx-press-theme": {
             "hashes": [
                 "sha256:00a168c485a020ab8637c8d58db4d8d9cd9585c9a7cc15fba9bdfbf6f2dfa909"
             ],

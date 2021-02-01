@@ -4,8 +4,8 @@
 Cookiecutter Go Template
 ===============================
 
-.. image:: https://travis-ci.com/romnnn/cookiecutter-go.svg?branch=master
-    :target: https://travis-ci.com/romnnn/cookiecutter-go
+.. image:: https://travis-ci.com/romnn/cookiecutter-go.svg?branch=master
+    :target: https://travis-ci.com/romnn/cookiecutter-go
     :alt: Build status
 .. image:: https://readthedocs.org/projects/cookiecutter-go/badge/?version=latest
     :target: https://cookiecutter-go.readthedocs.io/en/latest/?badge=latest
@@ -58,7 +58,7 @@ Create a new go project
 
 Navigate to wherever you want your project to be created, and run cookiecutter (you will be asked for the project name etc)::
 
-    $ cookiecutter https://github.com/romnnn/cookiecutter-go.git
+    $ cookiecutter https://github.com/romnn/cookiecutter-go.git
 
 After your project was created:
 

@@ -14,19 +14,19 @@ test_requirements = [
     "ruamel.yaml"
 ]
 coverage_requirements = ["coverage", "codecov"]
-docs_requirements = ["sphinx>=2.0", "romnnn_sphinx_press_theme", "sphinxemoji"]
+docs_requirements = ["sphinx>=2.0", "romnn_sphinx_press_theme", "sphinxemoji"]
 dev_requirements = ["invoke", "pre-commit", "cookiecutter"]
 
 setup(
-    name="romnnn-cookiecutter-go",
+    name="romnn-cookiecutter-go",
     packages=[],
     python_requires=">=3.6",
     version=version,
     description="Cookiecutter template for a go project",
-    author="romnnn",
+    author="romnn",
     license="MIT",
     author_email="contact@romnn.com",
-    url="https://github.com/romnnn/cookiecutter-go",
+    url="https://github.com/romnn/cookiecutter-go",
     keywords=["cookiecutter", "template", "package", "golang"],
     extras_require=dict(
         dev=dev_requirements

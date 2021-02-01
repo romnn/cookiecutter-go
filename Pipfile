@@ -16,7 +16,7 @@ coverage = "*"
 codecov = "*"
 # Docs
 sphinx = ">=2.0"
-romnnn_sphinx_press_theme = "*"
+romnn_sphinx_press_theme = "*"
 sphinxemoji = "*"
 # Tools
 "ruamel.yaml" = "*"

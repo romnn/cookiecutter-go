@@ -4,7 +4,7 @@ Tutorial
 .. note:: Do you find any of these instructions confusing? `Edit this file`_
           and submit a pull request with your improvements!
 
-.. _`Edit this file`: https://github.com/romnnn/cookiecutter-go/blob/master/docs/tutorial.rst
+.. _`Edit this file`: https://github.com/romnn/cookiecutter-go/blob/master/docs/tutorial.rst
 
 To start with, you will need a `GitHub account`_. Create this before you get started with this tutorial.
 If you are new to Git and GitHub, you should probably spend a few minutes on some of the tutorials at the top of the page at `GitHub Help`_.
@@ -52,7 +52,7 @@ Use cookiecutter, pointing it at the cookiecutter-go repo:
 
 .. code-block:: console
 
-    $ cookiecutter https://github.com/romnnn/cookiecutter-go.git
+    $ cookiecutter https://github.com/romnn/cookiecutter-go.git
 
 You'll be asked to enter a bunch of values to set the package up.
 If you don't know what to enter, stick with the defaults.
