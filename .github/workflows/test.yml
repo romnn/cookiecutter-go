@@ -14,5 +14,6 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - run: pip install tox
-      - name: test
-        run: tox -e codecov
+      - name: Test
+        run: tox
+      - uses: codecov/codecov-action@v1

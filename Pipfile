@@ -13,7 +13,6 @@ pytest-xdist = "<=1.34.0"
 pytest-sugar = "*"
 # Coverage
 coverage = "*"
-codecov = "*"
 # Tools
 "ruamel.yaml" = "*"
 invoke = "*"

@@ -5,7 +5,7 @@ include =
     setup.py
     tasks.py
 omit =
-    .tox/*
+    .tox/**/*
     tests
     tasks.py
     setup.py
